@@ -3,8 +3,13 @@
 ## Create
 
 ```sql
+CREATE DATABASE database_a
+```
+
+```sql
 CREATE TABLE IF NOT EXISTS table_a
   column 
+    -- DataTypes
     INTEGER
     BOOLEAN
     FLOAT
@@ -12,11 +17,13 @@ CREATE TABLE IF NOT EXISTS table_a
     TEXT
     DATE
     DATETIME
-      PRIMARY KEY
-      AUTOINCREMENT
-      UNIQUE
-      NOT NULL
-        DEFAULT
+    TIMESTAMP	
+    -- Table Contraints
+    PRIMARY KEY
+    AUTO_INCREMENT
+    UNIQUE
+    NOT NULL
+    DEFAULT
 
 ```
 
@@ -30,6 +37,10 @@ RENAME TO table_b
 ```
 
 ## Drop
+
+```sql
+DROP DATABASE database_a
+```
 
 ```sql
 DROP TABLE IF EXISTS table_a
@@ -46,6 +57,7 @@ SELECT/SELECT DISTINCT column, *
   AVG(column)
   SUM(column)
 FROM table_name
+AS alias
 JOIN/INNER JOIN 
 LEFT JOIN
 RIGHT JOIN
@@ -54,16 +66,22 @@ FULL JOIN table_b
 WHERE condition
   AND
   OR
-	  =
-	  !=
-	  LIKE
-	  NOT LIKE
-	  IN ()
-	  NOT IN ()
-	  %
-	  _
-	  IS NULL
-	  IS NOT NULL
+  NOT
+  EXISTS
+  BETWEEN
+  NOT BETWEEN
+  =
+  !=
+  LIKE
+  NOT LIKE
+  IN ()
+  NOT IN ()
+  %
+  _
+  IS NULL
+  IS NOT NULL
+  ANY ()
+  ALL
 GROUP BY column
 HAVING constraint
 ORDER BY column
@@ -85,7 +103,7 @@ VALUES
 ## Update
 
 ```sql
-UPDATE table
+UPDATE table_a
 SET column_a = value_1
     column_b = value_2
 WHERE condition
@@ -94,6 +112,6 @@ WHERE condition
 ## Delete
 
 ```sql
-DELETE FROM table
+DELETE FROM table_a
 WHERE condition
 ```
