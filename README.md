@@ -1,6 +1,6 @@
 # SQL Statements
 
-## Create
+### Create
 
 ```sql
 CREATE DATABASE database_a
@@ -27,7 +27,7 @@ CREATE TABLE IF NOT EXISTS table_a
 
 ```
 
-## Alter
+### Alter
 
 ```sql
 ALTER TABLE table_a
@@ -36,7 +36,7 @@ DROP column
 RENAME TO table_b
 ```
 
-## Drop
+### Drop
 
 ```sql
 DROP DATABASE database_a
@@ -91,7 +91,7 @@ LIMIT count
 OFFSET count
 ```
 
-## Insert
+### Insert
 
 ```sql
 INSERT INTO table
@@ -100,7 +100,7 @@ VALUES
   (value_1, value_2)
 ```
 
-## Update
+### Update
 
 ```sql
 UPDATE table_a
@@ -109,7 +109,7 @@ SET column_a = value_1
 WHERE condition
 ```
 
-## Delete
+### Delete
 
 ```sql
 DELETE FROM table_a
