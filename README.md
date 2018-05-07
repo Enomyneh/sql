@@ -1,9 +1,5 @@
 # SQL Statements
 
-- All values must be in qu
-
-
-
 ## Create Database
 
 ```sql
