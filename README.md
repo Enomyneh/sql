@@ -153,10 +153,12 @@ DELETE FROM table_name
 ### Open Connection
 
 ```php
-$host       = "localhost";
-$username   = "root";
-$password   = "root";
-$dbname     = "pdo";
+<?php
+
+$host       = 'localhost';
+$username   = 'root';
+$password   = 'root';
+$dbname     = 'pdo';
 $dsn        = "mysql:host=$host;dbname=$dbname";
 $options    = [
                 PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
@@ -169,9 +171,11 @@ $connection = new PDO($dsn, $username, $password, $options);
 ### Select Rows
 
 ```php
-$sql = "SELECT * 
+<?php
+
+$sql = 'SELECT * 
           FROM users
-         WHERE location = :location";
+         WHERE location = :location';
 
 $statement = $connection->prepare($sql);
 $statement->bindParam(':location', 'Chicago', PDO::PARAM_STR);
@@ -187,6 +191,8 @@ foreach ($rows as $row) {
 ### Insert a Row
 
 ```php
+<?php
+
 $sql = "INSERT INTO users (username, email) 
              VALUES (:username, :email)";
 
@@ -200,6 +206,8 @@ $insert = $statement->execute();
 ### Update a Row
 
 ```php
+<?php
+
 $user = [
   'username'  => 'Tania',
   'email'     => 'tania@example.com',
@@ -219,6 +227,8 @@ $statement->execute($user);
 ### Delete a Row
 
 ```php
+<?php
+
 $sql = "DELETE FROM users 
               WHERE id = :id";
 
