@@ -16,14 +16,14 @@ DROP DATABASE IF EXISTS database_name
 
 ```sql
 CREATE TABLE IF NOT EXISTS table_name (
-  column_a DataType Constraints,
-  column_b DataType Constraints,
+  column_a Datatype Constraints,
+  column_b Datatype Constraints,
 );
 ```
 
-### DataTypes
+### Datatypes
 
-**DataType**|**Description**
+**Datatype**|**Description**
 -----|-----
 `INT(n)`|Integer values
 `VARCHAR(n)`|String with max number of characters
@@ -166,15 +166,26 @@ $options    = [
 $connection = new PDO($dsn, $username, $password, $options);
 ```
 
+### Datatypes
+
+**Datatype**|**Description**
+-----|-----
+`PDO::PARAM_BOOL`|Represents a boolean data type
+`PDO::PARAM_NULL`|Represents the SQL NULL data type
+`PDO::PARAM_INT`|Represents the SQL INTEGER data type
+`PDO::PARAM_STR`|Represents the SQL CHAR, VARCHAR, or other string data type.
+
 ### Select Rows
 
 ```php
 $sql = "SELECT * 
           FROM users
          WHERE location = :location";
+         
+$location = 'Chicago';
 
 $statement = $connection->prepare($sql);
-$statement->bindParam(':location', 'Chicago', PDO::PARAM_STR);
+$statement->bindParam(':location', $location, PDO::PARAM_STR);
 $statement->execute();
 
 $rows = $statement->fetchAll(PDO::FETCH_ASSOC);
@@ -190,9 +201,12 @@ foreach ($rows as $row) {
 $sql = "INSERT INTO users (username, email) 
              VALUES (:username, :email)";
 
+$username = 'Tania';
+$email = 'tania@example.com';
+
 $statement = $connection->$prepare($sql);
-$statement->bindValue(':username', 'Tania');
-$statement->bindValue(':email', 'tania@example.com');
+$statement->bindValue(':username', $username, PDO::PARAM_STR);
+$statement->bindValue(':email', $email, PDO::PARAM_STR);
 
 $insert = $statement->execute();
 ```
@@ -223,7 +237,7 @@ $sql = "DELETE FROM users
               WHERE id = :id";
 
 $statement = $connection->prepare($sql);
-$statement->bindValue(':id', 5);
+$statement->bindValue(':id', 5, PDO::PARAM_INT);
  
 $delete = $statement->execute();
 ```
