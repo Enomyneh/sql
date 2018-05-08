@@ -60,21 +60,29 @@ DROP TABLE IF EXISTS table_name
 ## Select Rows
 
 ```sql
-   SELECT *, column_a, column_b, Function(column_a)
-       AS alias
+   SELECT *, column_a, column_b, AggregateFunction(column_a)
+       AS Alias
      FROM table_a
      JOIN table_b
        ON table_a.column_a = table_b.column_a
     WHERE Condition
       AND Condition
        OR Condition
+      NOT Condition
  GROUP BY column_a
-   HAVING Constraint
+   HAVING Condition
  ORDER BY column_a
       ASC
      DESC
     LIMIT Count
    OFFSET Count
+```
+
+## Select Distint Rows
+
+```sql
+SELECT DISTINCT column_name
+           FROM table_name
 ```
 
 ### Joins
@@ -86,7 +94,7 @@ DROP TABLE IF EXISTS table_name
 `RIGHT JOIN`|Returns all entries from right table, and matches from left table
 `FULL JOIN`|Returns all entries from both tables
 
-### Functions
+### Aggregate Functions
 
 **Function**|**Description**
 -----|-----
@@ -120,7 +128,7 @@ DROP TABLE IF EXISTS table_name
 ## Insert Rows
 
 ```sql
-INSERT INTO table_name (column_a, columnb_b)
+INSERT INTO table_name (column_a, column_b)
      VALUES ("value_1", "value_2")
 ```
 
