@@ -153,8 +153,6 @@ DELETE FROM table_name
 ### Open Connection
 
 ```php
-<?php
-
 $host       = 'localhost';
 $username   = 'root';
 $password   = 'root';
@@ -171,8 +169,6 @@ $connection = new PDO($dsn, $username, $password, $options);
 ### Select Rows
 
 ```php
-<?php
-
 $sql = 'SELECT * 
           FROM users
          WHERE location = :location';
@@ -191,8 +187,6 @@ foreach ($rows as $row) {
 ### Insert a Row
 
 ```php
-<?php
-
 $sql = "INSERT INTO users (username, email) 
              VALUES (:username, :email)";
 
@@ -206,8 +200,6 @@ $insert = $statement->execute();
 ### Update a Row
 
 ```php
-<?php
-
 $user = [
   'username'  => 'Tania',
   'email'     => 'tania@example.com',
@@ -227,8 +219,6 @@ $statement->execute($user);
 ### Delete a Row
 
 ```php
-<?php
-
 $sql = "DELETE FROM users 
               WHERE id = :id";
 
