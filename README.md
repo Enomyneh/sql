@@ -201,9 +201,9 @@ $insert = $statement->execute();
 
 ```php
 $user = [
-  "username" => 'Tania,
-  "email"     => 'tania@example.com',
-  "location"  => 'Chicago',
+  'username'  => 'Tania',
+  'email'     => 'tania@example.com',
+  'location'  => 'Chicago',
 ];
 
 $sql = "UPDATE users 
