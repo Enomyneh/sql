@@ -28,10 +28,12 @@ CREATE TABLE IF NOT EXISTS table_name (
 **Datatype**|**Description**
 -----|-----
 `INT(n)`|Integer values
+`FLOAT(n, d)`| Decimal values
 `VARCHAR(n)`|String with max number of characters
 `TEXT`|String with without set limit (max value of 65,535)
-`DATE(YYYY-MM-DD)`|Year, month, and day
-`DATETIME(YYYY-MM-DD HH:MI:SS)`|Year, month, day, hour, minute, and second
+`DATE('YYYY-MM-DD')`|Year, month, and day
+`DATETIME('YYYY-MM-DD HH:MI:SS')`|Year, month, day, hour, minute, and second
+`TIMESTAMP('YYYY-MM-DD HH:MI:SS')`|Datetime corresponding to UNIX epoch time
 
 #### Constraints
 
@@ -175,7 +177,7 @@ $connection = new PDO($dsn, $username, $password, $options);
 `PDO::PARAM_BOOL`|Represents a boolean data type
 `PDO::PARAM_NULL`|Represents the SQL NULL data type
 `PDO::PARAM_INT`|Represents the SQL INTEGER data type
-`PDO::PARAM_STR`|Represents the SQL CHAR, VARCHAR, or other string data type.
+`PDO::PARAM_STR`|Represents the SQL CHAR, VARCHAR, or other string data type
 
 ### Select Rows
 
