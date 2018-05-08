@@ -147,3 +147,83 @@ UPDATE table_name
 DELETE FROM table_name
       WHERE Condition
 ```
+
+## PDO
+
+### Open Connection
+
+```php
+$host       = "localhost";
+$username   = "root";
+$password   = "root";
+$dbname     = "pdo";
+$dsn        = "mysql:host=$host;dbname=$dbname";
+$options    = [
+                PDO::ATTR_ERRMODE => PDO::ERRMODE_EXCEPTION,
+                PDO::ATTR_EMULATE_PREPARES => false
+              ];
+
+$connection = new PDO($dsn, $username, $password, $options);
+```
+
+### Select Rows
+
+```php
+$sql = "SELECT * 
+          FROM users
+         WHERE location = :location";
+
+$statement = $connection->prepare($sql);
+$statement->bindParam(':location', 'Chicago', PDO::PARAM_STR);
+$statement->execute();
+
+$rows = $statement->fetchAll(PDO::FETCH_ASSOC);
+
+foreach ($rows as $row) {
+  echo $row['location'];
+} 
+```
+
+### Insert a Row
+
+```php
+$sql = "INSERT INTO users (username, email) 
+             VALUES (:username, :email)";
+
+$statement = $connection->$prepare($sql);
+$statement->bindValue(':username', 'Tania');
+$statement->bindValue(':email', 'tania@example.com');
+
+$insert = $statement->execute();
+```
+
+### Update a Row
+
+```php
+$user = [
+  "username" => 'Tania,
+  "email"     => 'tania@example.com',
+  "location"  => 'Chicago',
+];
+
+$sql = "UPDATE users 
+           SET username = :username, 
+               email = :email, 
+               location = :location, 
+         WHERE id = :id";
+        
+$statement = $connection->prepare($sql);
+$statement->execute($user);
+```
+
+### Delete a Row
+
+```php
+$sql = "DELETE FROM users 
+              WHERE id = :id";
+
+$statement = $connection->prepare($sql);
+$statement->bindValue(':id', 5);
+ 
+$delete = $statement->execute();
+```
