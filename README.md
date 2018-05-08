@@ -1,18 +1,20 @@
-# SQL Statements
+# SQL Syntax and PDO Operations
 
-## Create Database
+## SQL
+
+### Create Database
 
 ```sql
 CREATE DATABASE IF NOT EXISTS database_name
 ```
 
-## Drop Database
+### Drop Database
 
 ```sql
 DROP DATABASE IF EXISTS database_name
 ```
 
-## Create Table
+### Create Table
 
 ```sql
 CREATE TABLE IF NOT EXISTS table_name (
@@ -21,7 +23,7 @@ CREATE TABLE IF NOT EXISTS table_name (
 );
 ```
 
-### Datatypes
+#### Datatypes
 
 **Datatype**|**Description**
 -----|-----
@@ -31,7 +33,7 @@ CREATE TABLE IF NOT EXISTS table_name (
 `DATE(YYYY-MM-DD)`|Year, month, and day
 `DATETIME(YYYY-MM-DD HH:MI:SS)`|Year, month, day, hour, minute, and second
 
-### Constraints
+#### Constraints
 
 **Constraint**|**Description**
 -----|-----
@@ -41,7 +43,7 @@ CREATE TABLE IF NOT EXISTS table_name (
 `NOT NULL`|Value cannot be NULL
 `DEFAULT`|Initialized with default value
 
-## Alter Table
+### Alter Table
 
 ```sql
  ALTER TABLE table_a
@@ -51,13 +53,13 @@ ALTER COLUMN column_a DataType
    RENAME TO table_b
 ```
 
-## Drop Table
+### Drop Table
 
 ```sql
 DROP TABLE IF EXISTS table_name
 ```
 
-## Select Rows
+### Select Rows
 
 ```sql
    SELECT *, column_a, column_b, AggregateFunction(column_a)
@@ -78,14 +80,14 @@ DROP TABLE IF EXISTS table_name
    OFFSET Count
 ```
 
-## Select Distint Rows
+### Select Distint Rows
 
 ```sql
 SELECT DISTINCT column_name
            FROM table_name
 ```
 
-### Joins
+#### Joins
 
 **Join**|**Description**
 -----|-----
@@ -94,7 +96,7 @@ SELECT DISTINCT column_name
 `RIGHT JOIN`|Returns all entries from right table, and matches from left table
 `FULL JOIN`|Returns all entries from both tables
 
-### Aggregate Functions
+#### Aggregate Functions
 
 **Function**|**Description**
 -----|-----
@@ -104,7 +106,7 @@ SELECT DISTINCT column_name
 `MAX(column)`|Find the largest value
 `AVG(column)`|Find the average value
 
-### Conditions
+#### Conditions
 
 **Operator**|**Condition**
 -----|-----
@@ -125,14 +127,14 @@ SELECT DISTINCT column_name
 `ALL`|If all values meet condition
 `EXISTS`|If one or more records exist
 
-## Insert Rows
+### Insert Rows
 
 ```sql
 INSERT INTO table_name (column_a, column_b)
      VALUES ("value_1", "value_2")
 ```
 
-## Update Rows
+### Update Rows
 
 ```sql
 UPDATE table_name
@@ -141,7 +143,7 @@ UPDATE table_name
  WHERE Condition
 ```
 
-## Delete Rows
+### Delete Rows
 
 ```sql
 DELETE FROM table_name
@@ -166,7 +168,7 @@ $options    = [
 $connection = new PDO($dsn, $username, $password, $options);
 ```
 
-### Datatypes
+#### Datatypes
 
 **Datatype**|**Description**
 -----|-----
@@ -195,7 +197,7 @@ foreach ($rows as $row) {
 } 
 ```
 
-### Insert a Row
+### Insert Row
 
 ```php
 $sql = "INSERT INTO users (username, email) 
@@ -211,7 +213,7 @@ $statement->bindValue(':email', $email, PDO::PARAM_STR);
 $insert = $statement->execute();
 ```
 
-### Update a Row
+### Update Row
 
 ```php
 $user = [
@@ -230,7 +232,7 @@ $statement = $connection->prepare($sql);
 $statement->execute($user);
 ```
 
-### Delete a Row
+### Delete Row
 
 ```php
 $sql = "DELETE FROM users 
