@@ -169,9 +169,9 @@ $connection = new PDO($dsn, $username, $password, $options);
 ### Select Rows
 
 ```php
-$sql = 'SELECT * 
+$sql = "SELECT * 
           FROM users
-         WHERE location = :location';
+         WHERE location = :location";
 
 $statement = $connection->prepare($sql);
 $statement->bindParam(':location', 'Chicago', PDO::PARAM_STR);
